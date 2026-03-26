@@ -35,16 +35,16 @@ class Main {
     }
     
     public static void update(int arr[],int idx,int newVal){
-        int diff = newVal-arr[idx];
+        
         arr[idx] = newVal;
         int n = arr.length;
-        updateUtil(0,0,n-1,idx,diff);
+        updateUtil(0,0,n-1,idx,newVal);
     }
-    public static void updateUtil(int i,int si,int sj,int idx,int diff){
+    public static void updateUtil(int i,int si,int sj,int idx,int newVal){
         if(idx<si || idx>sj){
             return;
         }
-        tree[i] = Math.max(tree[i],tree[i]+diff);
+        tree[i] = Math.max(tree[i],newVal);
         if(si!=sj){
             int mid = (si+sj)/2;
             updateUtil(2*i+1,si,mid,idx,diff);
